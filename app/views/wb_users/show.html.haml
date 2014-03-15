@@ -1,0 +1,7 @@
+#wb_user
+
+:javascript
+  $(function() {
+    window.router = new WbAnalyst.Routers.WbUsersRouter({wb_user: #{@wb_user.to_json.html_safe}});
+    Backbone.history.start();
+  });
