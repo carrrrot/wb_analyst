@@ -67,6 +67,6 @@ module WbAnalyst
   end
 end
 
-API_KEY = '3684946552'
-API_SECRET = 'e1636bbd9e31df5408d6af840af6837d'
-REDIRECT_URI = 'http://dev.xhbr.info:3000/login/callback'
+API_KEY = ''
+API_SECRET = ''
+REDIRECT_URI = ''
