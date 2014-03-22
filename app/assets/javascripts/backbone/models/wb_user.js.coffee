@@ -23,4 +23,6 @@ class WbAnalyst.Models.WbUser extends Backbone.Model
   	bi_followers_count: null
   	lang: null
 
-  url: '/wb_user'
+class WbAnalyst.Collections.WbUsersCollection extends Backbone.Collection
+  model: WbAnalyst.Models.WbUser
+  url: '/wb_users'

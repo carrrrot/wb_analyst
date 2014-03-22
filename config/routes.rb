@@ -4,7 +4,7 @@ WbAnalyst::Application.routes.draw do
     get 'callback', :action => :callback
   end
 
-  resource :wb_user, only: [:show] do
+  resources :wb_users, only: [:index, :show] do
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
