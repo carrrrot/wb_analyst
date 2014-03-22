@@ -1,4 +1,8 @@
 class WbUsersController < ApplicationController
+	include ApplicationHelper
+  include HasAccessControl
+
+  before_filter :check_login
 
 	def show
 		@wb_user = WbUser.new
