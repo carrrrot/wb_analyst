@@ -1,6 +1,6 @@
 module HasAccessControl
   def logged_in?
   	# binding.pry
-    cookies[:uid] != nil
+    session[:uid] != nil
   end
 end

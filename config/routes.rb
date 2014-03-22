@@ -4,6 +4,8 @@ WbAnalyst::Application.routes.draw do
     get 'callback', :action => :callback
   end
 
+  get 'logout' => 'logins#logout'
+
   resources :wb_users, only: [:index, :show] do
   end
   # The priority is based upon order of creation:

@@ -17,7 +17,7 @@ class LoginsController < ApplicationController
     client = WeiboOAuth2::Client.new
     access_token = client.auth_code.get_token(params[:code].to_s)
     wb_id = session[:uid] = access_token.params["uid"]
-    cookies[:uid] = wb_id
+    # cookies[:uid] = wb_id
     token_value = session[:access_token] = access_token.token
     expires_at = session[:expires_at] = access_token.expires_at
     begin
@@ -33,5 +33,10 @@ class LoginsController < ApplicationController
     end
 
     redirect_to wb_users_url
+  end
+
+  def logout
+  	reset_session
+  	redirect_to login_url
   end
 end
