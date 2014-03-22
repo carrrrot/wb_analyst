@@ -21,25 +21,29 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#") WbAnalyst
-          .container.nav-collapse
+          .container.nav-collapse.pull-right
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              - if logged_in?
+                %li= link_to "Logout", "/path1"
+                / %li= link_to "Link 2", "/path2"
+                / %li= link_to "Link 3", "/path3"
+              - else
+                %li= link_to "#{image_tag('/wb_24x24.png')} Login with Weibo".html_safe, "/login/connect"
 
     .container-fluid
-
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-        .span9
-          = bootstrap_flash
-          = yield
+      / = binding.pry
+      - if logged_in?
+        .row-fluid
+          .span3
+            .well.sidebar-nav
+              %ul.nav.nav-list
+                %li.nav-header Sidebar
+                %li= link_to "Link 1", "/path1"
+                %li= link_to "Link 2", "/path2"
+                %li= link_to "Link 3", "/path3"
+          .span9
+            = bootstrap_flash
+            = yield
     
       %footer
         %p &copy; carrrrot.info 2014

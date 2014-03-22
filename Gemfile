@@ -13,6 +13,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'weibo_2', '~> 0.1.4'
 gem 'lazy_high_charts', :git => 'git://github.com/carrrrot/lazy_high_charts.git', :branch => 'master'
 
 gem 'oauth2'
