@@ -1,7 +1,7 @@
 module ApplicationHelper
-	include HasAccessControl
+  include HasAccessControl
 
-	def check_login
+  def check_login
     redirect_to login_url unless logged_in?
   end
 end

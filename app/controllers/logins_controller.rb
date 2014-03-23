@@ -36,7 +36,7 @@ class LoginsController < ApplicationController
   end
 
   def logout
-  	reset_session
-  	redirect_to login_url
+    reset_session
+    redirect_to login_url
   end
 end

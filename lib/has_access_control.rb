@@ -1,6 +1,6 @@
 module HasAccessControl
   def logged_in?
-  	# binding.pry
+    # binding.pry
     session[:uid] != nil
   end
 end
