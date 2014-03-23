@@ -6,7 +6,7 @@ class WbAnalyst.Views.WbUsers.WbUserView extends Backbone.View
   # events:
   #   "click .destroy" : "destroy"
 
-  tagName: "tr"
+  tagName: "li"
 
   # destroy: () ->
   #   @model.destroy()

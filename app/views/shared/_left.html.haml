@@ -1,0 +1,7 @@
+/ .span3
+/ 	.well.sidebar-nav
+/ 		%ul.nav.nav-list
+/ 			%li.nav-header Weibo Users
+/ 			- wb_user_competitors(session[:uid]).each do |competitor| 
+/ 				%li= competitor.name
+/ #wb_users{:data => {:wb_users => @wb_users.to_json.html_safe}}

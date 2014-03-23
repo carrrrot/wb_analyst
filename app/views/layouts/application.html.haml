@@ -24,25 +24,20 @@
           .container.nav-collapse.pull-right
             %ul.nav
               - if logged_in?
+                %li= image_tag "#{wb_user_avatar(session[:uid])}"
                 %li= link_to "Logout", "/logout"
-                / %li= link_to "Link 2", "/path2"
                 / %li= link_to "Link 3", "/path3"
               - else
                 %li= link_to "#{image_tag('/wb_24x24.png')} Login with Weibo".html_safe, "/login/connect"
 
     .container-fluid
       .row-fluid
-        - if logged_in?
-          .span3
-            .well.sidebar-nav
-              %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
-        .span9
-          = bootstrap_flash
-          = yield
+        = yield
+        / - if logged_in?
+        /   =render partial: "shared/left"
+        / .span9
+        /   = bootstrap_flash
+        /   = yield
     
       %footer
         %p &copy; carrrrot.info 2014
