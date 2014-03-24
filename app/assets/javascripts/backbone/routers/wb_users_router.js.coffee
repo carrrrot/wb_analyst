@@ -8,7 +8,7 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
   routes:
     "new"       : "newWbUser"
     "index"     : "index"
-    ":id"       : "show"
+    "wb/:id"   : "show"
     ".*"        : "index"
   
   # show: ->
@@ -17,7 +17,7 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
   newWbUser: ->
     @view = new WbAnalyst.Views.WbUsers.NewView(wb_users: @wb_users)
     $("#wb_users").html(@view.render().el)
-    
+
   index: ->
     @view = new WbAnalyst.Views.WbUsers.IndexView(wb_users: @wb_users)
     $("#wb_users").html(@view.render().el)

@@ -5,6 +5,7 @@ class WbAnalyst.Views.WbUsers.WbUsersListView extends Backbone.View
 
   initialize: () ->
     @options.list.bind('reset', @addAll)
+    @options.list.bind('filter', @filterAll)
 
   addAll: () =>
     @options.list.each(@addOne)
@@ -13,7 +14,14 @@ class WbAnalyst.Views.WbUsers.WbUsersListView extends Backbone.View
     view = new WbAnalyst.Views.WbUsers.WbUserView({model : wb_user})
     @$("ul").append(view.render().el)
 
+  filterOne: (wb_user) =>
+    wb_user.trigger('visible')
+
+  filterAll: () =>
+    @options.list.each(@filterOne)
+
   render: =>
     $(@el).html(@template(wb_users: @options.list.toJSON() ))
     @addAll()
+    # @filterAll()
     return this

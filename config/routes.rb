@@ -6,7 +6,7 @@ WbAnalyst::Application.routes.draw do
 
   get 'logout' => 'logins#logout'
 
-  resources :wb_users, only: [:index, :show, :create] do
+  resources :wb_users, only: [:index, :show, :create, :destroy] do
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

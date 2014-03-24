@@ -4,10 +4,11 @@ class WbAnalyst.Views.WbUsers.ShowView extends Backbone.View
   template: JST["backbone/templates/wb_users/show"]
 
   render: ->
-    # $(@el).html(@template(@model.toJSON() ))
-    # return this
-    view = new WbAnalyst.Views.WbUsers.WbUsersListView({list : @options.wb_users})
+    listView = new WbAnalyst.Views.WbUsers.WbUsersListView({list : @options.wb_users})
+    filterView = new WbAnalyst.Views.WbUsers.WbUsersFilterView({})
+
     $(@el).html(@template(@model.toJSON()))
-    @$(".span3").append(view.render().el)
+    @$(".span3").append(filterView.render().el)
+    @$(".span3").append(listView.render().el)
 
     return this

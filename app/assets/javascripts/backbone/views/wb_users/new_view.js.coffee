@@ -23,16 +23,19 @@ class WbAnalyst.Views.WbUsers.NewView extends Backbone.View
     @options.wb_users.create(@model.toJSON(),
       success: (wb_user) =>
         @model = wb_user
-        window.location.hash = "/#{@model.id}"
+        window.location.hash = "/#/wb/{@model.id}"
 
       error: (wb_user, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 
   render: ->
-    view = new WbAnalyst.Views.WbUsers.WbUsersListView({list : @options.wb_users})
+    listView = new WbAnalyst.Views.WbUsers.WbUsersListView({list : @options.wb_users})
+    filterView = new WbAnalyst.Views.WbUsers.WbUsersFilterView({})
+
     $(@el).html(@template(@model.toJSON() ))
-    @$(".span3").append(view.render().el)
+    @$(".span3").append(filterView.render().el)
+    @$(".span3").append(listView.render().el)
 
     this.$("form").backboneLink(@model)
 
