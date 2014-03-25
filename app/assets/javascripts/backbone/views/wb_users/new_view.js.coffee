@@ -23,7 +23,7 @@ class WbAnalyst.Views.WbUsers.NewView extends Backbone.View
     @options.wb_users.create(@model.toJSON(),
       success: (wb_user) =>
         @model = wb_user
-        window.location.hash = "/#/wb/{@model.id}"
+        window.location.hash = "/wb/#{@model.id}"
 
       error: (wb_user, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

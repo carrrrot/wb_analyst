@@ -1,6 +1,7 @@
 class WbUser < ActiveRecord::Base
   has_one :wb_access_token, dependent: :destroy
-  accepts_nested_attributes_for :wb_access_token
+  has_many :wb_user_frames, dependent: :destroy
+  accepts_nested_attributes_for :wb_access_token, :wb_user_frames
 
   has_and_belongs_to_many :wb_competitors, :class_name => "WbUser",
     :join_table => "wb_competitions",

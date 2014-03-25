@@ -11,9 +11,9 @@ module WbUsersHelper
     uri = URI.parse(url.to_s.strip.downcase) rescue nil
     if uri and uri.host =~ /\A(www\.|e\.)?weibo\.com\Z/ and match = path_match(uri)
       if /\A\d*\Z/.match(match)
-      	wb_id = match
+        wb_id = match
       else
-      	domain = match
+        domain = match
       end
     else
       wb_id = nil

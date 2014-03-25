@@ -30,5 +30,5 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
     $("#wb_users").html(@view.render().el)
 
   setFilter: (param) ->
-  	WbAnalyst.WbUserFilter = param || '';
-  	@wb_users.trigger('filter');
+    WbAnalyst.WbUserFilter = param || '';
+    @wb_users.trigger('filter');

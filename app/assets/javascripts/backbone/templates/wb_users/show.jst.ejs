@@ -1,8 +1,16 @@
 <div id="wb_users-index">
   <div class="span3"></div>
   <div class="span9">
-    <div>
-      name: <%= name %>
+    <div class="section">
+      <div id="user-info" style="background: url(<%= avatar_large %>) 0 0 no-repeat;">
+        <h3><%= name %><small><%= verified_reason %></small></h3>
+        <p>Followers: <%= followers_count %>; Tweets: <%= statuses_count %> </p>
+      </div>
+    </div>
+    <div class="section">
+      <div id="followers-count">
+        <h4>Followers per Hour</h4>
+      </div>
     </div>
   </div>
 </div>

@@ -24,7 +24,6 @@ class WbUsersController < ApplicationController
     @wb_user = WbUser.where(wb_id: session[:uid]).first
     @wb_competitor = WbUser.where("wb_id = ? or lower(replace(domain, '.', '')) = replace(?, '.', '')", wb_id, domain).first
 
-    @info = "success"
     if !@wb_competitor
       begin
         access_token = @wb_user.wb_access_token
@@ -42,15 +41,12 @@ class WbUsersController < ApplicationController
 
         @wb_competitor = WbUser.new
         @wb_competitor.set_by_api(api_user)
-        # @wb_user.wb_competitors << @wb_competitor
 
         access_token.success_count += 1
-        # @info = "success"
       rescue
         # need to add the target_user to a job queue and retry in backgroud
         Rails.logger.error "#{Time.now} add_target_user error: #{$!}."
         access_token.error_count += 1
-        @info = "error"
       ensure
         access_token.save!
       end # begin

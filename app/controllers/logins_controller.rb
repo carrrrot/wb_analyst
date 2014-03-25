@@ -1,9 +1,6 @@
 class LoginsController < ApplicationController
+  include ApplicationHelper
   include HasAccessControl
-
-  WeiboOAuth2::Config.api_key = API_KEY
-  WeiboOAuth2::Config.api_secret = API_SECRET
-  WeiboOAuth2::Config.redirect_uri = REDIRECT_URI
 
   def show
   end

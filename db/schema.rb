@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140323173031) do
+ActiveRecord::Schema.define(:version => 20140325075305) do
 
   create_table "wb_access_tokens", :force => true do |t|
     t.integer  "wb_user_id",                   :null => false
@@ -33,6 +33,24 @@ ActiveRecord::Schema.define(:version => 20140323173031) do
   end
 
   add_index "wb_competitions", ["wb_user_id", "wb_competitor_id"], :name => "index_wb_competitions_on_wb_user_id_and_wb_competitor_id", :unique => true
+
+  create_table "wb_user_frames", :force => true do |t|
+    t.integer  "wb_user_id",                           :null => false
+    t.integer  "followers_count",       :default => 0, :null => false
+    t.integer  "bi_followers_count",    :default => 0, :null => false
+    t.integer  "friends_count",         :default => 0, :null => false
+    t.integer  "statuses_count",        :default => 0, :null => false
+    t.integer  "favourites_count",      :default => 0, :null => false
+    t.float    "followers_per_hour"
+    t.float    "bi_followers_per_hour"
+    t.float    "friends_per_hour"
+    t.float    "statuses_per_hour"
+    t.float    "favourites_per_hour"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "wb_user_frames", ["wb_user_id", "created_at"], :name => "index_wb_user_frames_on_wb_user_id_and_created_at", :unique => true
 
   create_table "wb_users", :force => true do |t|
     t.integer  "wb_id",              :limit => 8, :null => false
