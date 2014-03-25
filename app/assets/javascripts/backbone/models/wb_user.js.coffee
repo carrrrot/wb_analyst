@@ -1,4 +1,4 @@
-class WbAnalyst.Models.WbUser extends Backbone.Model
+class WbAnalyst.Models.WbUser extends Backbone.RelationalModel
   paramRoot: 'wb_user'
 
   defaults:

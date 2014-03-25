@@ -16,17 +16,17 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
   #   @view = new WbAnalyst.Views.WbUsers.ShowView(model: @wb_user)
   #   $("#wb_user").html(@view.render().el)
   newWbUser: ->
-    @view = new WbAnalyst.Views.WbUsers.NewView(wb_users: @wb_users)
+    @view = new WbAnalyst.Views.WbUsers.NewView(collection: @wb_users)
     $("#wb_users").html(@view.render().el)
 
   index: ->
-    @view = new WbAnalyst.Views.WbUsers.IndexView(wb_users: @wb_users)
+    @view = new WbAnalyst.Views.WbUsers.IndexView(collection: @wb_users)
     $("#wb_users").html(@view.render().el)
 
   show: (id) ->
     wb_user = @wb_users.get(id)
 
-    @view = new WbAnalyst.Views.WbUsers.ShowView(wb_users: @wb_users, model: wb_user)
+    @view = new WbAnalyst.Views.WbUsers.ShowView(collection: @wb_users, model: wb_user)
     $("#wb_users").html(@view.render().el)
 
   setFilter: (param) ->

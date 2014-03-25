@@ -15,7 +15,7 @@ class WbAnalyst.Views.WbUsers.IndexView extends Backbone.View
   #   @$("ul").append(view.render().el)
 
   render: ->
-    listView = new WbAnalyst.Views.WbUsers.WbUsersListView({list : @options.wb_users})
+    listView = new WbAnalyst.Views.WbUsers.WbUsersListView({collection : @collection})
     filterView = new WbAnalyst.Views.WbUsers.WbUsersFilterView({})
 
     $(@el).html(@template())

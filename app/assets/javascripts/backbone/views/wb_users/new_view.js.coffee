@@ -8,7 +8,7 @@ class WbAnalyst.Views.WbUsers.NewView extends Backbone.View
 
   constructor: (options) ->
     super(options)
-    @model = new @options.wb_users.model()
+    @model = new @collection.model()
 
     @model.bind("change:errors", () =>
       this.render()
@@ -20,7 +20,7 @@ class WbAnalyst.Views.WbUsers.NewView extends Backbone.View
 
     @model.unset("errors")
 
-    @options.wb_users.create(@model.toJSON(),
+    @collection.create(@model.toJSON(),
       success: (wb_user) =>
         @model = wb_user
         window.location.hash = "/wb/#{@model.id}"
@@ -30,7 +30,7 @@ class WbAnalyst.Views.WbUsers.NewView extends Backbone.View
     )
 
   render: ->
-    listView = new WbAnalyst.Views.WbUsers.WbUsersListView({list : @options.wb_users})
+    listView = new WbAnalyst.Views.WbUsers.WbUsersListView({collection : @collection})
     filterView = new WbAnalyst.Views.WbUsers.WbUsersFilterView({})
 
     $(@el).html(@template(@model.toJSON() ))

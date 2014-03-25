@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem 'mysql2'
-gem 'rails-backbone'
+gem 'rails-backbone', :git => 'git://github.com/codebrew/backbone-rails.git', :branch => 'master'
 gem 'haml-rails', '0.3.4'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
