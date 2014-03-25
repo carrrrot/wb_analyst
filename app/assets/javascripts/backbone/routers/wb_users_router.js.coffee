@@ -8,8 +8,9 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
   routes:
     "new"       : "newWbUser"
     "index"     : "index"
-    "wb/:id"   : "show"
+    "wb/:id"    : "show"
     ".*"        : "index"
+    "*filter"   : "setFilter"
   
   # show: ->
   #   @view = new WbAnalyst.Views.WbUsers.ShowView(model: @wb_user)
@@ -27,3 +28,7 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
 
     @view = new WbAnalyst.Views.WbUsers.ShowView(wb_users: @wb_users, model: wb_user)
     $("#wb_users").html(@view.render().el)
+
+  setFilter: (param) ->
+  	WbAnalyst.WbUserFilter = param || '';
+  	@wb_users.trigger('filter');

@@ -29,4 +29,17 @@ class WbAnalyst.Models.WbUser extends Backbone.Model
 
 class WbAnalyst.Collections.WbUsersCollection extends Backbone.Collection
   model: WbAnalyst.Models.WbUser
+
   url: '/wb_users'
+
+  verified: () ->
+    @filter (wb_user) =>
+        wb_user.get("verified_type") is 0
+  
+  starred: () ->
+    @filter (wb_user) =>
+        wb_user.get("verified_type") is 220
+
+  unverified: () ->
+    @filter (wb_user) =>
+        wb_user.get("verified_type") is -1

@@ -20,8 +20,10 @@ class WbAnalyst.Views.WbUsers.WbUsersListView extends Backbone.View
   filterAll: () =>
     @options.list.each(@filterOne)
 
-  render: =>
+  render: ->
+    verified = @options.list.verified().length
+
     $(@el).html(@template(wb_users: @options.list.toJSON() ))
     @addAll()
-    # @filterAll()
+    @filterAll()
     return this
