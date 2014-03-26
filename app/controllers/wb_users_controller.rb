@@ -25,7 +25,8 @@ class WbUsersController < ApplicationController
   end
 
   def create
-    pair = parse_user_url(params[:wb_user][:account_url])
+    # pair = parse_user_url(params[:wb_user][:account_url])
+    pair = parse_user_url(params[:account_url])
     wb_id = pair["wb_id"]
     domain = pair["domain"]
     
