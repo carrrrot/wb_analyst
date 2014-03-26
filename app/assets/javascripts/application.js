@@ -18,4 +18,5 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone-relational
+//= require highcharts/highcharts
 //= require backbone/wb_analyst

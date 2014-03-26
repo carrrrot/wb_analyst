@@ -6,14 +6,22 @@ class WbUsersController < ApplicationController
   before_filter :check_login
 
   def show
-    @wb_user = WbUser.find(params[:id])
-    respond_to { render json: @wb_user }
+    @wb_user = WbUser.find(params[:id]).to_json(:include => :wb_user_frames)
+    respond_to do |format|
+      # format.html
+      format.json { render json: @wb_user }
+    end
   end
 
   def index
     wb_user = WbUser.where(wb_id: session[:uid]).first
     @wb_users = wb_user.wb_competitors
     @wb_users.insert(0, wb_user)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @wb_users.to_json(:include => :wb_user_frames) }
+    end
   end
 
   def create

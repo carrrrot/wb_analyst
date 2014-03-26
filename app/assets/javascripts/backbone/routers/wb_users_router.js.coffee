@@ -24,7 +24,9 @@ class WbAnalyst.Routers.WbUsersRouter extends Backbone.Router
     $("#wb_users").html(@view.render().el)
 
   show: (id) ->
-    wb_user = @wb_users.get(id)
+    # wb_user = @wb_users.get(id)
+    wb_user = WbAnalyst.Models.WbUser.findOrCreate({id: id})
+    wb_user.fetch()
 
     @view = new WbAnalyst.Views.WbUsers.ShowView(collection: @wb_users, model: wb_user)
     $("#wb_users").html(@view.render().el)

@@ -1,5 +1,7 @@
 class WbAnalyst.Models.WbUser extends Backbone.RelationalModel
-  paramRoot: 'wb_user'
+  # paramRoot: 'wb_user'
+  urlRoot: '/wb_users'
+  idAttribute: 'id'
 
   defaults:
     wb_id: null
@@ -25,6 +27,16 @@ class WbAnalyst.Models.WbUser extends Backbone.RelationalModel
     verified_type: null
     friends_count: null
     account_url: null
+
+  relations: [
+    type: Backbone.HasMany
+    key: 'wb_user_frames'
+    relatedModel: 'WbAnalyst.Models.WbUserFrame'
+    # collectionType: 'WbAnalyst.Collections.WbUsersCollection'
+    reverseRelation: 
+        key: 'wb_user'
+        includeInJSON: 'id' 
+  ]
 
 
 class WbAnalyst.Collections.WbUsersCollection extends Backbone.Collection

@@ -1,1 +1,1 @@
-#wb_users{:data => {:wb_users => @wb_users.to_json.html_safe}}
+#wb_users{:data => {:wb_users => @wb_users.to_json(:include => :wb_user_frames).html_safe}}
