@@ -21,11 +21,11 @@ class WbAnalyst.Views.Shared.ChartView extends Backbone.View
       tooltip:
         xDateFormat: '%m-%d %H:%M:%S'
 
-      # legend:
-      #   layout: "vertical"
-      #   align: "right"
-      #   verticalAlign: "middle"
-      #   borderWidth: 0
+      legend:
+        layout: "vertical"
+        align: "right"
+        verticalAlign: "middle"
+        borderWidth: 0
 
       series: @data.toJSON()
 
